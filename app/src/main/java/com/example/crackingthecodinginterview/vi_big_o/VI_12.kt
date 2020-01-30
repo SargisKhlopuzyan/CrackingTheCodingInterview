@@ -1,4 +1,4 @@
-package com.example.crackingthecodinginterview
+package com.example.crackingthecodinginterview.vi_big_o
 
 /**
  * Created by Sargis Khlopuzyan, on 1/29/2020.
@@ -23,7 +23,10 @@ fun intersection_vi_12(a: Array<Int>, b: Array<Int>) {
     println("b: ${b.asList()}")
 
     for (i in a) {
-        if (binarySearch_vi_12(b, i) >= 0) {
+        if (binarySearch_vi_12(
+                b,
+                i
+            ) >= 0) {
             insertion++
         }
     }
@@ -34,15 +37,32 @@ fun intersection_vi_12(a: Array<Int>, b: Array<Int>) {
 // Quick Sort
 
 fun quickSort_vi_12(arr: Array<Int>) {
-    quickSort_vi_12(arr, 0, arr.size - 1)
+    quickSort_vi_12(
+        arr,
+        0,
+        arr.size - 1
+    )
 }
 
 fun quickSort_vi_12(arr: Array<Int>, lowIndex: Int, highIndex: Int) {
 
     if (lowIndex < highIndex) {
-        var partitionIndex = partition_vi_12(arr, lowIndex, highIndex)
-        quickSort_vi_12(arr, lowIndex, partitionIndex - 1)
-        quickSort_vi_12(arr, partitionIndex + 1, highIndex)
+        var partitionIndex =
+            partition_vi_12(
+                arr,
+                lowIndex,
+                highIndex
+            )
+        quickSort_vi_12(
+            arr,
+            lowIndex,
+            partitionIndex - 1
+        )
+        quickSort_vi_12(
+            arr,
+            partitionIndex + 1,
+            highIndex
+        )
     }
 
 }
@@ -61,7 +81,11 @@ fun partition_vi_12(arr: Array<Int>, lowIndex: Int, highIndex: Int): Int {
         }
     }
 
-    swap_vi_12(arr, i + 1, highIndex)
+    swap_vi_12(
+        arr,
+        i + 1,
+        highIndex
+    )
 
     return i + 1
 }
@@ -72,7 +96,11 @@ fun bubbleSort_vi_12(b: Array<Int>) {
     for (i in 0 until b.size - 1) {
         for (j in i + 1 until b.size) {
             if (b[i] > b[j]) {
-                swap_vi_12(b, i, j)
+                swap_vi_12(
+                    b,
+                    i,
+                    j
+                )
             }
         }
     }
@@ -94,7 +122,12 @@ fun swap_vi_12(arr: Array<Int>, pos1: Int, pos2: Int) {
 // Binary Search
 
 fun binarySearch_vi_12(b: Array<Int>, value: Int): Int {
-    return binarySearch_vi_12(b, value, 0, b.size - 1)
+    return binarySearch_vi_12(
+        b,
+        value,
+        0,
+        b.size - 1
+    )
 }
 
 fun binarySearch_vi_12(array: Array<Int>, value: Int, startIndex: Int, endIndex: Int): Int {
@@ -110,10 +143,20 @@ fun binarySearch_vi_12(array: Array<Int>, value: Int, startIndex: Int, endIndex:
             midIndex
         }
         array[midIndex] < value -> {
-            binarySearch_vi_12(array, value, midIndex + 1, endIndex)
+            binarySearch_vi_12(
+                array,
+                value,
+                midIndex + 1,
+                endIndex
+            )
         }
         else -> {
-            binarySearch_vi_12(array, value, startIndex, midIndex - 1)
+            binarySearch_vi_12(
+                array,
+                value,
+                startIndex,
+                midIndex - 1
+            )
         }
     }
 }

@@ -1,4 +1,4 @@
-package com.example.crackingthecodinginterview
+package com.example.crackingthecodinginterview.vi_big_o
 
 fun main() {
     allFib(16)
@@ -8,7 +8,10 @@ fun allFib(n: Int) {
     var memo = IntArray(n + 1)
 
     for (i in 0 until n) {
-        println("$i : ${fib_15(i, memo)}")
+        println("$i : ${fib_15(
+            i,
+            memo
+        )}")
     }
 
 }
@@ -22,7 +25,10 @@ fun fib_15(n: Int, memo: IntArray): Int {
     } else if (memo[n] > 0) {
         return memo[n]
     } else {
-        memo[n] = fib_15(n - 1, memo) + fib_15(n - 2, memo)
+        memo[n] = fib_15(
+            n - 1,
+            memo
+        ) + fib_15(n - 2, memo)
         return memo[n]
     }
 }

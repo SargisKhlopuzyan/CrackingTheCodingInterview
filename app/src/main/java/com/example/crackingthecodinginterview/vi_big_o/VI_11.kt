@@ -1,4 +1,4 @@
-package com.example.crackingthecodinginterview
+package com.example.crackingthecodinginterview.vi_big_o
 
 /**
  * Created by Sargis Khlopuzyan, on 1/29/2020.
@@ -11,18 +11,27 @@ fun main() {
 }
 
 fun printSortedStrings_vi_11(remaining: Int) {
-    printSortedStrings_vi_11(remaining, "")
+    printSortedStrings_vi_11(
+        remaining,
+        ""
+    )
 }
 
 fun printSortedStrings_vi_11(remaining: Int, prefix: String) {
 
     if (remaining == 0) {
-        if (isInOrder_vi_11(prefix)) {
+        if (isInOrder_vi_11(
+                prefix
+            )
+        ) {
             println("prefix: $prefix")
         }
     } else {
         for (c in 'a'..'z') {
-            printSortedStrings_vi_11(remaining - 1, prefix + c)
+            printSortedStrings_vi_11(
+                remaining - 1,
+                prefix + c
+            )
         }
     }
 }

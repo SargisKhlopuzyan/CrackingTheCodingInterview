@@ -1,4 +1,4 @@
-package com.example.crackingthecodinginterview
+package com.example.crackingthecodinginterview.vi_big_o
 
 
 fun main() {
@@ -12,7 +12,8 @@ fun powersOf2_16(n: Int): Int {
         println(1)
         return 1
     } else {
-        var prev = powersOf2_16(n / 2)
+        var prev =
+            powersOf2_16(n / 2)
         var curr = prev * 2
         println(curr)
         return curr

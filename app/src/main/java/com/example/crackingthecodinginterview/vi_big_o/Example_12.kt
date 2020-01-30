@@ -1,4 +1,4 @@
-package com.example.crackingthecodinginterview
+package com.example.crackingthecodinginterview.vi_big_o
 
 fun main() {
 
@@ -15,7 +15,10 @@ fun permutation_12(str: String, prefix: String) {
             var rem = str.substring(0, i) + str.substring(i + 1)
 //            println("rem: $rem, prefix : $prefix, str[i]: ${str[i]}")
             println("rem: $rem, prefix + str[i]: ${prefix + str[i]}")
-            permutation_12(rem, prefix + str[i])
+            permutation_12(
+                rem,
+                prefix + str[i]
+            )
         }
     }
 }

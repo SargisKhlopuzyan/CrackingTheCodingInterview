@@ -1,4 +1,4 @@
-package com.example.crackingthecodinginterview
+package com.example.crackingthecodinginterview.vi_big_o
 
 fun main() {
     var chars = arrayOf("o", "k", "a", "b", "c", "d", "e", "f")
