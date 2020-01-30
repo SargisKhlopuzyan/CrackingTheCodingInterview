@@ -1,4 +1,4 @@
-package com.example.crackingthecodinginterview.algorithms.sorting
+package com.example.crackingthecodinginterview.algorithm.sorting
 
 /**
  * Created by Sargis Khlopuzyan, on 1/30/2020.
