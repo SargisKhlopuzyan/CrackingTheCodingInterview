@@ -7,32 +7,62 @@ package com.example.crackingthecodinginterview.vii_technical_questions
  */
 
 fun main() {
+
     val s = "abbc"
+
     val b = "cbabadcbbabbcbabaabccbabc"
 
-    printTheLocationOfEachPermutation(s, b)
+    val array1 = Array(s.length) {
+        'n'
+    }
+
+    val array2 = Array(b.length) {
+        'n'
+    }
+
+    for ((index, c) in s.withIndex()) {
+        array1[index] = c
+    }
+
+    isTwoArraysEqual(array1, array2)
+
 }
 
-fun printTheLocationOfEachPermutation(s: String, b: String) {
+private fun isTwoArraysEqual(array1: Array<Char>, array2: Array<Char>): Boolean {
 
-    for ((index, bb) in b.withIndex()) {
+    var hashMap1 = HashMap<Char, Int>()
+    var hashMap2 = HashMap<Char, Int>()
+
+    for (i in array1.indices) {
+
+        val element1 = array1[i]
+
+        val value1 = hashMap1[element1]
+        if (value1 != null) {
+            hashMap1[element1] = value1 + 1
+        } else {
+            hashMap1[element1] = 1
+        }
+
+        val element2 = array2[i]
+
+        val value2 = hashMap2[element2]
+        if (value2 != null) {
+            hashMap2[element2] = value2 + 1
+        } else {
+            hashMap2[element2] = 1
+        }
 
     }
 
-    for ((index, ss) in s.withIndex()) {
-        println("index: $index, ss: $ss")
+    for (i in array1) {
+
+        if (hashMap1[i] != hashMap2[i]) {
+            return false
+        }
 
     }
-}
 
-fun checIsArraysEqual(array1: Array<String>, array2: Array<String>) {
-
-    var hashMap = HashMap<String, Int>()
-
-    for (element in array1) {
-
-        val value = element[element]
-        if (has)
-    }
+    return true
 
 }
