@@ -1,4 +1,4 @@
-package com.example.crackingthecodinginterview.vii_technical_questions
+package com.example.crackingthecodinginterview.vii_technical_questions.Optimize_And_Solve_Tech_nique_No_1_Look_for_BUD
 
 import kotlin.math.pow
 
@@ -9,9 +9,15 @@ import kotlin.math.pow
  * @author Sargis Khlopuzyan (sargis.khlopuzyan@fcc.am)
  */
 
+/**
+ * Example: Print all positive integer solutions to the equation a* + b* = c3 + d-1
+ * where a, b, c, and d are integers between 1 and 1000.
+ * */
 fun main() {
 //    a3_pluse_b3_equal_c3_pluse_d3_N3(100)
-    a3_pluse_b3_equal_c3_pluse_d3_N2(100)
+    a3_pluse_b3_equal_c3_pluse_d3_N2(
+        100
+    )
 }
 
 
