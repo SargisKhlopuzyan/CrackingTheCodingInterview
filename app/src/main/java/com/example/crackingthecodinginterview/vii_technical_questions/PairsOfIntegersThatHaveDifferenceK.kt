@@ -16,7 +16,7 @@ fun main() {
 }
 
 //O(N)
-fun findPairsOfIntegersThatHaveDifferenceK(array: Array<Int>, k: Int): ArrayList<Pair<Int, Int>> {
+private fun findPairsOfIntegersThatHaveDifferenceK(array: Array<Int>, k: Int): ArrayList<Pair<Int, Int>> {
 
     var hashMap = HashMap<Int, Any>()
 
