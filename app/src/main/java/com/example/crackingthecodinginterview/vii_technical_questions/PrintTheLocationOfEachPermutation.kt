@@ -8,35 +8,50 @@ package com.example.crackingthecodinginterview.vii_technical_questions
 
 fun main() {
 
+//    N1 is length of s
+//    N2 is length of b
+
     val s = "abbc"
 
     val b = "cbabadcbbabbcbabaabccbabc"
 
-    val array1 = Array(s.length) {
-        'n'
+    val arrayS = Array(s.length) { "" }
+    val arrayB = Array(b.length) { "" }
+
+//    O(N1)
+    for ((index, element) in s.withIndex()) {
+        arrayS[index] = element.toString()
     }
 
-    val array2 = Array(b.length) {
-        'n'
+//    O(N2)
+    for ((index, element) in b.withIndex()) {
+        arrayB[index] = element.toString()
     }
 
-    for ((index, c) in s.withIndex()) {
-        array1[index] = c
+//    O(N2-N1)
+    for (index in 0..(b.length - s.length)) {
+        //O(N1)
+        isTwoArraysEqual(arrayS, arrayB, index, s.length)
     }
-
-    isTwoArraysEqual(array1, array2)
-
 }
 
-private fun isTwoArraysEqual(array1: Array<Char>, array2: Array<Char>): Boolean {
+//O(N1)
+private fun isTwoArraysEqual(
+    arrayS: Array<String>,
+    arrayB: Array<String>,
+    startIndex: Int,
+    itemsCount: Int
+): Boolean {
 
-    var hashMap1 = HashMap<Char, Int>()
-    var hashMap2 = HashMap<Char, Int>()
+    val hashMap1 = HashMap<String, Int>()
+    val hashMap2 = HashMap<String, Int>()
 
-    for (i in array1.indices) {
+//    O(N1)
+    for (i in 0 until itemsCount) {
 
-        val element1 = array1[i]
+        //
 
+        val element1 = arrayS[i]
         val value1 = hashMap1[element1]
         if (value1 != null) {
             hashMap1[element1] = value1 + 1
@@ -44,8 +59,9 @@ private fun isTwoArraysEqual(array1: Array<Char>, array2: Array<Char>): Boolean 
             hashMap1[element1] = 1
         }
 
-        val element2 = array2[i]
+        //
 
+        val element2 = arrayB[i + startIndex]
         val value2 = hashMap2[element2]
         if (value2 != null) {
             hashMap2[element2] = value2 + 1
@@ -53,15 +69,29 @@ private fun isTwoArraysEqual(array1: Array<Char>, array2: Array<Char>): Boolean 
             hashMap2[element2] = 1
         }
 
+        //
     }
 
-    for (i in array1) {
+//    O(N1)
+    for (i in arrayS) {
 
         if (hashMap1[i] != hashMap2[i]) {
             return false
         }
 
     }
+
+//    O(N1)
+    var strB = "["
+    for (i in startIndex until (startIndex + itemsCount)) {
+        if (i != startIndex) {
+            strB += ", "
+        }
+        strB += arrayB[i]
+    }
+    strB += "]"
+
+    println("arrayB: $strB, arrayS: ${arrayS.asList()}")
 
     return true
 
