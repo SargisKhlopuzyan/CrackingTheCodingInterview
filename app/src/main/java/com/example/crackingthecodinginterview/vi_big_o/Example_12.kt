@@ -14,7 +14,7 @@ fun permutation_12(str: String, prefix: String) {
         for (i in str.indices) {
             var rem = str.substring(0, i) + str.substring(i + 1)
 //            println("rem: $rem, prefix : $prefix, str[i]: ${str[i]}")
-            println("rem: $rem, prefix + str[i]: ${prefix + str[i]}")
+//            println("rem: $rem, prefix + str[i]: ${prefix + str[i]}")
             permutation_12(
                 rem,
                 prefix + str[i]
