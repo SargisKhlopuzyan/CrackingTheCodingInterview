@@ -6,6 +6,10 @@ package com.example.crackingthecodinginterview.vii_technical_questions.Best_Conc
  * @author Sargis Khlopuzyan (sargis.khlopuzyan@fcc.am)
  */
 
+/**
+ * Given two sorted arrays, find the number of elements in common.
+ * The arrays are the same length and each has all distinct elements.
+ * */
 fun main() {
     val array1 = arrayOf(13, 27, 35, 40, 49, 55, 59)
     val array2 = arrayOf(17, 35, 39, 40, 55, 58, 60)
@@ -23,7 +27,7 @@ fun findTheNumberOfElementsInCommon(array1: Array<Int>, array2: Array<Int>) {
         hashMap2[array2[i]] = i
     }
 
-    var elementsInCommon = mutableListOf<Int>()
+    val elementsInCommon = mutableListOf<Int>()
 
     for (element in array1) {
         if (hashMap1[element] != null && hashMap2[element] != null) {
