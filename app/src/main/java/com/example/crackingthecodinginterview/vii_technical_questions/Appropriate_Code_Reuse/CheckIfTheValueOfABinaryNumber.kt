@@ -9,13 +9,16 @@ import kotlin.math.pow
  */
 
 fun main() {
-    val isBinToHex = compareBinToHex("16", "16")
+    val isBinEqualToHex = compareBinToHex("10011111", "9F")
+    println("isBinEqualToHex: $isBinEqualToHex")
 }
 
 fun compareBinToHex(binary: String, hex: String): Boolean {
 
     val n1 = convertFromBase(binary, 2)
     val n2 = convertFromBase(hex, 16)
+
+    println("n1: $n1 || n2: $n2")
 
     if (n1 < 0 || n2 < 0) {
         return false
@@ -32,8 +35,10 @@ fun convertFromBase(number: String, base: Int): Int {
 
     var value = 0
 
-    for (i in (number.length - 1)..0) {
+    for (i in (number.length - 1) downTo 0) {
+
         val digit = digitToValue(number[i])
+
         if (digit < 0 || digit >= base) {
             return -1
         }
@@ -46,5 +51,17 @@ fun convertFromBase(number: String, base: Int): Int {
 }
 
 fun digitToValue(c: Char): Int {
-
+    return try {
+        Integer.parseInt(c.toString())
+    } catch (e: NumberFormatException) {
+        when (c) {
+            'A' -> 10
+            'B' -> 11
+            'C' -> 12
+            'D' -> 13
+            'E' -> 14
+            'F' -> 15
+            else -> 16
+        }
+    }
 }
